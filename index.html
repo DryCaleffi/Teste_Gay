@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Clientes</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">GESTÃO DE CLIENTES</p>
+        <h1>Cadastro de clientes</h1>
+        <p class="subtitle">Cadastre, consulte e mantenha seus clientes organizados.</p>
+      </div>
+      <div class="counter" aria-live="polite">
+        <span id="totalClientes">0</span>
+        <small>clientes cadastrados</small>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2 id="formTitle">Novo cliente</h2>
+      <form id="clienteForm">
+        <input type="hidden" id="clienteId">
+        <div class="form-grid">
+          <label class="field field-wide">
+            Nome completo *
+            <input type="text" id="nome" placeholder="Ex.: Maria da Silva" required maxlength="100">
+          </label>
+          <label class="field">
+            E-mail *
+            <input type="email" id="email" placeholder="maria@email.com" required maxlength="120">
+          </label>
+          <label class="field">
+            Telefone *
+            <input type="tel" id="telefone" placeholder="(19) 99999-9999" required maxlength="20">
+          </label>
+          <label class="field">
+            CPF
+            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+          </label>
+          <label class="field">
+            Data de nascimento
+            <input type="date" id="nascimento">
+          </label>
+          <label class="field field-wide">
+            Endereço
+            <input type="text" id="endereco" placeholder="Rua, número, bairro e cidade" maxlength="180">
+          </label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="button primary" id="submitButton">Cadastrar cliente</button>
+          <button type="button" class="button secondary" id="cancelButton" hidden>Cancelar edição</button>
+        </div>
+        <p class="form-note">* Campos obrigatórios. Os dados ficam salvos neste navegador.</p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="list-header">
+        <div>
+          <h2>Clientes cadastrados</h2>
+          <p class="subtitle">Pesquise por nome, e-mail, telefone ou CPF.</p>
+        </div>
+        <label class="search-box">
+          <span class="sr-only">Pesquisar clientes</span>
+          <input type="search" id="busca" placeholder="Buscar cliente...">
+        </label>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th>CPF</th>
+              <th class="actions-heading">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listaClientes">
+            <tr><td colspan="5" class="empty">Nenhum cliente cadastrado ainda.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer>Cadastro de Clientes · Projeto em HTML, CSS e JavaScript</footer>
+  </main>
+</body>
+</html>
